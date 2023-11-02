@@ -1,3 +1,5 @@
-<main>
-    <h1>Minegames</h1>
-</main>
+<script>
+    import Menu from "./lib/views/Menu.svelte";
+</script>
+
+<Menu/>
