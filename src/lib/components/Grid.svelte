@@ -1,7 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
     const dipatch = createEventDispatcher()
-    import { GameStore } from "../GameStore";
     import type { Tile } from "../types";
 
     export let rows: number;
@@ -11,7 +10,8 @@
     let numTiles: number
 
     const setMines = () => {
-        numMines = $GameStore.players - 1 || 1
+        // TODO Add more mines with grid size
+        numMines = 1
         numTiles = grid.length - numMines
         for (let i = 0; i < numMines; i++) {
             grid[i].hasMine = true

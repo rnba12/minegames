@@ -2,10 +2,9 @@
     import { GameStore } from "../GameStore";
     import { GameState } from "../types";
 
-    const handleStart = (e: Event) => {
+    const handleStart = () => {
         GameStore.update((store) => {
-            //@ts-expect-error
-            return {...store, gameState: GameState.GameStart, players: e.target?.players.value }
+            return {...store, gameState: GameState.GameStart}
         });
     }
 </script>
@@ -14,15 +13,7 @@
     <h1>Minegames</h1>
     <menu>
         <form on:submit|preventDefault={handleStart}>
-            <button on:click={handleStart}>Start</button>
-            <label for="">1</label>
-            <input type="radio" name="players" value={1}>
-            <label for="">2</label>
-            <input type="radio" name="players" value={2}>
-            <label for="">3</label>
-            <input type="radio" name="players" value={3}>
-            <label for="">4</label>
-            <input type="radio" name="players" value={4}>
+            <button>Start</button>
         </form>
     </menu>
 </div>
