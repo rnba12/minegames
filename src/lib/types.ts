@@ -1,7 +1,8 @@
 export enum GameState {
     Menu,
     GameStart,
-    GameOver
+    GameOver,
+    GameWon
 }
 
 export type Tile = {

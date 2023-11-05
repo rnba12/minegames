@@ -8,6 +8,7 @@
     const grid: Tile[] = Array(rows * columns)
     let numMines: number
     let numTiles: number
+    let canSelect = true;
 
     const setMines = () => {
         // TODO Add more mines with grid size
@@ -37,11 +38,14 @@
     }
 
     const handleClick = (i: number) => {
-        if (!grid[i].selected) {
+        if (!grid[i].selected && canSelect) {
             if (grid[i].hasMine) {
-                numMines -= 1
+                canSelect = false
             } else {
                 numTiles -= 1
+                if (isGridComplete()) {
+                    canSelect = false
+                }
             }
             grid[i].selected = true 
         }
@@ -53,7 +57,8 @@
 <div class="game-grid" style="--rows: {rows}; --columns: {columns}">
     {#each grid as tile, i}
         <div class="grid-item">
-            <button 
+            <button
+            disabled={!canSelect} 
             class:selected={tile.selected} 
             class:mine={tile.selected && tile.hasMine} on:click={() => handleClick(i)}></button>
         </div>
