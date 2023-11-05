@@ -23,4 +23,4 @@
     }
 </script>
 
-<Grid rows={3} columns={3} on:select={handleSelect}/>
+<Grid dimensions={$GameStore.gridSize} mines={$GameStore.numMines} on:select={handleSelect}/>

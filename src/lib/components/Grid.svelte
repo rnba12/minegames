@@ -3,18 +3,16 @@
     const dipatch = createEventDispatcher()
     import type { Tile } from "../types";
 
-    export let rows: number;
-    export let columns: number;
-    const grid: Tile[] = Array(rows * columns)
-    let numMines: number
+    export let dimensions: number;
+    export let mines: number;
+    const grid: Tile[] = Array(dimensions * dimensions)
     let numTiles: number
     let canSelect = true;
 
     const setMines = () => {
         // TODO Add more mines with grid size
-        numMines = 1
-        numTiles = grid.length - numMines
-        for (let i = 0; i < numMines; i++) {
+        numTiles = grid.length - mines
+        for (let i = 0; i < mines; i++) {
             grid[i].hasMine = true
         }
     }
@@ -54,7 +52,7 @@
 
 </script>
 
-<div class="game-grid" style="--rows: {rows}; --columns: {columns}">
+<div class="game-grid" style="--rows: {dimensions}; --columns: {dimensions}">
     {#each grid as tile, i}
         <div class="grid-item">
             <button
