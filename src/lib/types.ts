@@ -3,3 +3,8 @@ export enum GameState {
     GameStart,
     GameOver
 }
+
+export type Tile = {
+    selected: boolean,
+    hasMine: boolean
+}

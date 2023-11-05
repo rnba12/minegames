@@ -4,7 +4,7 @@
 
     const handleStart = (e: Event) => {
         GameStore.update((store) => {
-            //@ts-ignore
+            //@ts-expect-error
             return {...store, gameState: GameState.GameStart, players: e.target?.players.value }
         });
     }
